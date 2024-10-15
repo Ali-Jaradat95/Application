@@ -1,0 +1,79 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.Web.Pages.ApiRequestResponseLogs
+@using Application.ApiRequestResponseLogs;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+
+<form data-ajaxForm="true" asp-page="/ApiRequestResponseLogs/CreateModal" autocomplete="off">
+    <abp-modal id="ApiRequestResponseLogCreateModal">
+        <abp-modal-header title="@L["NewApiRequestResponseLog"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    
+
+            <abp-input asp-for="ApiRequestResponseLog.RequestUrl"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.RequestMethod"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.RequestHeaders"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.RequestBody"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.ResponseBody"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.ResponseStatusCode"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.ResponseHeaders"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.DurationMs"   />
+
+            <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="ApiRequestResponseLog.CreatedAt" data-date="" />
+
+            <abp-input asp-for="ApiRequestResponseLog.CorrelationId"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.IpAddress"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.UserId"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.ErrorDetails"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.IsSuccessful"   />
+
+
+            <abp-input asp-for="ApiRequestResponseLog.SourceSystem"   />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

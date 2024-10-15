@@ -1,0 +1,85 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Application.Web.Pages.OrangeBillPullServiceConfigurations
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.OrangeBillPullServiceConfigurations;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/OrangeBillPullServiceConfigurations/EditModal" autocomplete="off">
+    <abp-modal id="OrangeBillPullServiceConfigurationEditModal">
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    <abp-input asp-for="Id" />
+                    <abp-input asp-for="OrangeBillPullServiceConfiguration.ConcurrencyStamp" hidden="true" suppress-label="true"/>
+                    
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.ServiceTypeId"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.IsServiceEnabled"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.IsWebServiceEnabled"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.WebServiceUrl"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.StoredProcedureName"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.BillerCode"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.ConnectionStringUserId"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.ConnectionStringPassword"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.ConnectionStringDataSource"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.LogLevel"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.SeverityId"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.DailyLimit"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.WeeklyLimit"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.MonthlyLimit"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.YearlyLimit"   />
+
+
+            <abp-input asp-for="OrangeBillPullServiceConfiguration.ErrorMessage"   />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

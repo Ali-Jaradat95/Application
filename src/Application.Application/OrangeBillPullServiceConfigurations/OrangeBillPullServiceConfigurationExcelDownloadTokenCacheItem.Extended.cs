@@ -1,0 +1,8 @@
+using System;
+
+namespace Application.OrangeBillPullServiceConfigurations;
+
+[Serializable]
+public class OrangeBillPullServiceConfigurationExcelDownloadTokenCacheItem : OrangeBillPullServiceConfigurationExcelDownloadTokenCacheItemBase
+{
+}

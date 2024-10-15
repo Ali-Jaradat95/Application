@@ -1,0 +1,245 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Application.Permissions
+@using Application.Web.Pages.MadfoatcomResponses
+@using Application.Web.Menus
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@inject IHtmlLocalizer<ApplicationResource> L
+@inject IAuthorizationService Authorization
+@model IndexModel
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.Title = L["MadfoatcomResponses"].Value;
+    PageLayout.Content.MenuItemName = ApplicationMenus.MadfoatcomResponses;
+}
+
+@section styles
+{
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/MadfoatcomResponses/index.js" />
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+}
+
+@section content_toolbar {
+    <abp-button id="ExportToExcelButton" text="@L["ExportToExcel"].Value" icon="download" size="Small" button-type="Primary" />
+    @if (await Authorization.IsGrantedAsync(ApplicationPermissions.MadfoatcomResponses.Create))
+    {
+        <abp-button id="NewMadfoatcomResponseButton" text="@L["NewMadfoatcomResponse"].Value" icon="plus" size="Small" button-type="Primary" />
+    }
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+}
+
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+
+<abp-card>
+    <abp-card-body>
+		<abp-row class="mb-3">
+            <abp-column size-md="_12">
+                <form id="SearchForm" autocomplete="off">
+                    <div class="input-group">
+                        <input class="form-control page-search-filter-text" id="FilterText" placeholder="@L["Search"]"/>
+                        <abp-button button-type="Primary" type="submit" icon="search"/>
+                    </div>
+                </form>
+            </abp-column>
+            <abp-column size-md="_12" class="mt-3">
+                <a href="javascript:;" id="AdvancedFilterSectionToggler" class="text-decoration-none">@L["SeeAdvancedFilters"]</a>
+            </abp-column>
+        </abp-row>
+
+        <abp-row id="AdvancedFilterSection" style="display: none;">
+            <abp-column size="_3">
+                <abp-input asp-for="BillerCodeFilterMin" label="@L["MinBillerCode"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="BillerCodeFilterMax" label="@L["MaxBillerCode"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="BillingNoFilter" label="@L["BillingNo"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="BillNoFilter" label="@L["BillNo"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="DueAmtFilter" label="@L["DueAmt"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="ValidationCodeFilter" label="@L["ValidationCode"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="ServiceTypeFilter" label="@L["ServiceType"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="PrepaidCatFilter" label="@L["PrepaidCat"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="AmountFilter" label="@L["Amount"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="SetBnkCodeFilterMin" label="@L["MinSetBnkCode"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="SetBnkCodeFilterMax" label="@L["MaxSetBnkCode"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="AcctNoFilter" label="@L["AcctNo"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="TransferReasonFilter" label="@L["TransferReason"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="ReceivingCountryFilter" label="@L["ReceivingCountry"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="CustNameFilter" label="@L["CustName"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="EmailFilter" label="@L["Email"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="PhoneFilter" label="@L["Phone"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="RecCountFilterMin" label="@L["MinRecCount"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="RecCountFilterMax" label="@L["MaxRecCount"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="BillStatusFilter" label="@L["BillStatus"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="DueAmountFilter" label="@L["DueAmount"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="IssueDateFilterMin" label="@L["MinIssueDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="IssueDateFilterMax" label="@L["MaxIssueDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="OpenDateFilterMin" label="@L["MinOpenDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="OpenDateFilterMax" label="@L["MaxOpenDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="DueDateFilterMin" label="@L["MinDueDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="DueDateFilterMax" label="@L["MaxDueDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="ExpiryDateFilterMin" label="@L["MinExpiryDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="ExpiryDateFilterMax" label="@L["MaxExpiryDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="CloseDateFilterMin" label="@L["MinCloseDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="CloseDateFilterMax" label="@L["MaxCloseDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-input asp-for="BillTypeFilter" label="@L["BillType"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-select asp-for="AllowPartFilter" label="@L["AllowPart"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="UpperFilter" label="@L["Upper"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="LowerFilter" label="@L["Lower"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="BillsCountFilterMin" label="@L["MinBillsCount"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="BillsCountFilterMax" label="@L["MaxBillsCount"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-input asp-for="JOEBPPSTrxFilter" label="@L["JOEBPPSTrx"].Value" />
+            </abp-column>
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="ProcessDateFilterMin" label="@L["MinProcessDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="ProcessDateFilterMax" label="@L["MaxProcessDate"].Value" />
+            </abp-column>
+
+            <abp-column size="_3">
+                <abp-input asp-for="STMTDateFilter" label="@L["STMTDate"].Value" />
+            </abp-column>
+@*//<suite-custom-code-block-5>*@
+@*//</suite-custom-code-block-5>*@
+        </abp-row>
+
+        <abp-table striped-rows="true" id="MadfoatcomResponsesTable">
+            <thead>
+				<tr>
+					<th>@L["Actions"]</th>
+					<th>@L["BillerCode"]</th>
+					<th>@L["BillingNo"]</th>
+					<th>@L["BillNo"]</th>
+					<th>@L["DueAmt"]</th>
+					<th>@L["ValidationCode"]</th>
+					<th>@L["ServiceType"]</th>
+					<th>@L["PrepaidCat"]</th>
+					<th>@L["Amount"]</th>
+					<th>@L["SetBnkCode"]</th>
+					<th>@L["AcctNo"]</th>
+					<th>@L["TransferReason"]</th>
+					<th>@L["ReceivingCountry"]</th>
+					<th>@L["CustName"]</th>
+					<th>@L["Email"]</th>
+					<th>@L["Phone"]</th>
+					<th>@L["RecCount"]</th>
+					<th>@L["BillStatus"]</th>
+					<th>@L["DueAmount"]</th>
+					<th>@L["IssueDate"]</th>
+					<th>@L["OpenDate"]</th>
+					<th>@L["DueDate"]</th>
+					<th>@L["ExpiryDate"]</th>
+					<th>@L["CloseDate"]</th>
+					<th>@L["BillType"]</th>
+					<th>@L["AllowPart"]</th>
+					<th>@L["Upper"]</th>
+					<th>@L["Lower"]</th>
+					<th>@L["BillsCount"]</th>
+					<th>@L["JOEBPPSTrx"]</th>
+					<th>@L["ProcessDate"]</th>
+					<th>@L["STMTDate"]</th>
+
+@*//<suite-custom-code-block-6>*@
+@*//</suite-custom-code-block-6>*@
+				</tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>
+
+@*//<suite-custom-code-block-7>*@
+@*//</suite-custom-code-block-7>*@

@@ -1,0 +1,54 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.Web.Pages.PrepaidValidationConfigs
+@using Application.PrepaidValidationConfigs;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+
+<form data-ajaxForm="true" asp-page="/PrepaidValidationConfigs/CreateModal" autocomplete="off">
+    <abp-modal id="PrepaidValidationConfigCreateModal">
+        <abp-modal-header title="@L["NewPrepaidValidationConfig"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    
+
+            <abp-input asp-for="PrepaidValidationConfig.ServiceType"   />
+
+
+            <abp-input asp-for="PrepaidValidationConfig.ChannelCode"   />
+
+
+            <abp-input asp-for="PrepaidValidationConfig.BillingName"   />
+
+
+            <abp-input asp-for="PrepaidValidationConfig.AliasBillingName"   />
+
+
+            <abp-input asp-for="PrepaidValidationConfig.IsTesting"   />
+
+
+            <abp-input asp-for="PrepaidValidationConfig.EndpointUrl"   />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

@@ -1,0 +1,46 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Application.Web.Pages.ThresholdLookups
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.ThresholdLookups;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/ThresholdLookups/EditModal" autocomplete="off">
+    <abp-modal id="ThresholdLookupEditModal">
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    <abp-input asp-for="Id" />
+                    <abp-input asp-for="ThresholdLookup.ConcurrencyStamp" hidden="true" suppress-label="true"/>
+                    
+
+            <abp-input asp-for="ThresholdLookup.Code"   />
+
+
+            <abp-input asp-for="ThresholdLookup.Name"   />
+
+
+            <abp-input asp-for="ThresholdLookup.Description" text-area  />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

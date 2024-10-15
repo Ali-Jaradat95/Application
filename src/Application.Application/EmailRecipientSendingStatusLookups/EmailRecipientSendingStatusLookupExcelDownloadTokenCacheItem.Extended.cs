@@ -1,0 +1,8 @@
+using System;
+
+namespace Application.EmailRecipientSendingStatusLookups;
+
+[Serializable]
+public class EmailRecipientSendingStatusLookupExcelDownloadTokenCacheItem : EmailRecipientSendingStatusLookupExcelDownloadTokenCacheItemBase
+{
+}

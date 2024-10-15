@@ -1,0 +1,71 @@
+version: '3.7'
+
+services:
+  application-web:
+    image: mycompanyname/application-web:latest
+    container_name: application-web
+    hostname: application-web
+    build:
+      context: ../../
+      dockerfile: src/Application.Web/Dockerfile.local
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80;
+      - Kestrel__Certificates__Default__Path=/root/certificate/localhost.pfx
+      - Kestrel__Certificates__Default__Password=44f45d9f-0a3a-4dcf-b016-abfc70d01cfe
+      - App__SelfUrl=https://localhost:44353
+      - AuthServer__RequireHttpsMetadata=false
+      - AuthServer__Authority=http://application-web
+      - App__HealthCheckUrl=http://application-web/health-status      
+      - ConnectionStrings__Default=Data Source=sql-server;Initial Catalog=Application;User Id=sa;Password=myPassw0rd;MultipleActiveResultSets=true;TrustServerCertificate=True;
+    ports:
+      - "44353:443"
+    restart: on-failure
+    volumes:
+      - ./certs:/root/certificate
+    networks:
+      - abp-network
+
+  
+
+  
+  db-migrator:
+    image: mycompanyname/application-db-migrator:latest
+    container_name: db-migrator
+    build:
+      context: ../../
+      dockerfile: src/Application.DbMigrator/Dockerfile.local
+    environment:
+      - OpenIddict__Applications__Application_Web__RootUrl=https://localhost:44353
+      - ConnectionStrings__Default=Data Source=sql-server;Initial Catalog=Application;User Id=sa;Password=myPassw0rd;MultipleActiveResultSets=true;TrustServerCertificate=True;
+      - Redis__Configuration=redis
+    depends_on:
+      sql-server:
+        condition: service_healthy
+    networks:
+      - abp-network
+  
+  sql-server:
+    container_name: sql-server
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1434:1433"
+    environment:
+      SA_PASSWORD: "myPassw0rd"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqldata:/var/opt/mssql
+    networks:
+      - abp-network
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S sql-server -U sa -P "myPassw0rd" -Q "SELECT 1" -b -o /dev/null
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+volumes:
+  sqldata:
+    name: application_sqldata
+networks:
+  abp-network:
+    name: application-network
+    driver: bridge

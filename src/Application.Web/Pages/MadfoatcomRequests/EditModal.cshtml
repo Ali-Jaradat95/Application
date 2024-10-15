@@ -1,0 +1,111 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Application.Web.Pages.MadfoatcomRequests
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.MadfoatcomRequests;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/MadfoatcomRequests/EditModal" autocomplete="off">
+    <abp-modal id="MadfoatcomRequestEditModal">
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    <abp-input asp-for="Id" />
+                    <abp-input asp-for="MadfoatcomRequest.ConcurrencyStamp" hidden="true" suppress-label="true"/>
+                    
+
+            <abp-input asp-for="MadfoatcomRequest.BillerCode"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.BillingNo"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.BillNo"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.ServiceType"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.PrepaidCat"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.DueAmt"   data-val="false"/>
+
+
+            <abp-input asp-for="MadfoatcomRequest.ValidationCode"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.JOEBPPSTrx"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.BankTrxId"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.BankCode"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.PmtStatus"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.PaidAmt"   data-val="false"/>
+
+
+            <abp-input asp-for="MadfoatcomRequest.FeesAmt"   data-val="false"/>
+
+
+            <abp-input asp-for="MadfoatcomRequest.FeesOnBiller"   />
+
+            <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="MadfoatcomRequest.ProcessDate"  />
+            <abp-date-picker auto-update-input="false" today-button-classes="btn-primary" asp-for="MadfoatcomRequest.StmtDate"  />
+
+            <abp-input asp-for="MadfoatcomRequest.AccessChannel"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.PaymentMethod"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.PaymentType"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.Amount"   data-val="false"/>
+
+
+            <abp-input asp-for="MadfoatcomRequest.SetBnkCode"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.AcctNo"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.Name"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.Phone"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.Address"   />
+
+
+            <abp-input asp-for="MadfoatcomRequest.Email"   />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

@@ -1,0 +1,45 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.Web.Pages.EmailRecipientSendingStatusLookups
+@using Application.EmailRecipientSendingStatusLookups;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+
+<form data-ajaxForm="true" asp-page="/EmailRecipientSendingStatusLookups/CreateModal" autocomplete="off">
+    <abp-modal id="EmailRecipientSendingStatusLookupCreateModal">
+        <abp-modal-header title="@L["NewEmailRecipientSendingStatusLookup"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    
+
+            <abp-input asp-for="EmailRecipientSendingStatusLookup.Code"   />
+
+
+            <abp-input asp-for="EmailRecipientSendingStatusLookup.Name"   />
+
+
+            <abp-input asp-for="EmailRecipientSendingStatusLookup.Description" text-area  />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

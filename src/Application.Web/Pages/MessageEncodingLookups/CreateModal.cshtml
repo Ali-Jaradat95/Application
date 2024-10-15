@@ -1,0 +1,45 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Application.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Application.Web.Pages.MessageEncodingLookups
+@using Application.MessageEncodingLookups;
+@using System.Globalization
+@inject IHtmlLocalizer<ApplicationResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+
+<form data-ajaxForm="true" asp-page="/MessageEncodingLookups/CreateModal" autocomplete="off">
+    <abp-modal id="MessageEncodingLookupCreateModal">
+        <abp-modal-header title="@L["NewMessageEncodingLookup"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+@*//<suite-custom-code-block-1>*@
+@*//</suite-custom-code-block-1>*@
+                    
+
+            <abp-input asp-for="MessageEncodingLookup.Code"   />
+
+
+            <abp-input asp-for="MessageEncodingLookup.Name"   />
+
+
+            <abp-input asp-for="MessageEncodingLookup.Description" text-area  />
+
+                    
+                
+@*//<suite-custom-code-block-2>*@
+@*//</suite-custom-code-block-2>*@
+@*//<suite-custom-code-block-3>*@
+@*//</suite-custom-code-block-3>*@
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)">
+@*//<suite-custom-code-block-4>*@
+@*//</suite-custom-code-block-4>*@
+        </abp-modal-footer>
+    </abp-modal>
+</form>

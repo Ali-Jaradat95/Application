@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+COPY bin/Release/net7.0/publish/ app/
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+RUN dotnet dev-certs https -v -ep authserver.pfx -p 44f45d9f-0a3a-4dcf-b016-abfc70d01cfe
+
+FROM base AS final
+WORKDIR /app
+COPY --from=build /src .
+
+ENTRYPOINT ["dotnet", "Application.Web.dll"]
